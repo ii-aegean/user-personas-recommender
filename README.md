@@ -15,7 +15,7 @@ Download the [Flickr User-POI Visits Dataset](https://sites.google.com/site/limk
 
 Compute the cultural tourist profile of each visitor for the 8 cities of the dataset (```data-ijcai15/visits``` folder), using the ```profiles.py``` script. For example, for the city of Budapest, script parameters should be as follows 
 ```
-python profiles.py -i data-ijcai15/visits/userVisits-Buda-allPOI.csv -o buda-profiles.csv
+python profiles.py -i data-ijcai15/userVisits-ijcai15/userVisits-Buda-allPOI.csv -o buda-profiles.csv
 ```
 
 ## Step 3 - Produce recommendations
@@ -24,7 +24,7 @@ Produce recommendations for both models discussed in the paper (baseline and use
 
 For the same example city (Budapest) as before, script parameters should be as follows:
 ```
-python recommend.py -d data-ijcai15/visits/userVisits-Buda-allPOI.csv -u buda-profiles.csv
+python recommend.py -d data-ijcai15/userVisits-ijcai15/userVisits-Buda-allPOI.csv -u buda-profiles.csv
 ```
 and the output should be:
 ```
@@ -69,7 +69,7 @@ The default parameter values are according to the paper for the cities of Budape
 
 For example, if ```edin-profiles.csv``` contains the cultural tourist profiles of the visitors of the city of Edinburgh, then the recommendation script should be run as follows
 ```
-python recommend.py -d data-ijcai15/visits/userVisits-Edin.csv -u edin-profiles.csv --a 0.002
+python recommend.py -d data-ijcai15/userVisits-ijcai15/userVisits-Edin.csv -u edin-profiles.csv --a 0.002
 ```
 yielding the following output:
 ```
