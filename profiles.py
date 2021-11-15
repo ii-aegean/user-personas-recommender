@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 from collections import defaultdict
 from scipy.spatial.distance import euclidean
-import matplotlib.pyplot as plt
 import argparse as ap
 import numpy as np
 import pandas as pd
@@ -124,11 +123,11 @@ personas = pd.DataFrame({
 u_per = pd.DataFrame(index=users.index, columns=personas.index)
 
 for i in users.iterrows():
-    u_per.ix[i[0]]['purposeful'] = 1.0 / (1.0 + euclidean(i[1], personas.ix['purposeful']))
-    u_per.ix[i[0]]['sightseeing'] = 1.0 / (1.0 + euclidean(i[1], personas.ix['sightseeing']))
-    u_per.ix[i[0]]['incidental'] = 1.0 / (1.0 + euclidean(i[1], personas.ix['incidental']))
-    u_per.ix[i[0]]['serendipitous'] = 1.0 / (1.0 + euclidean(i[1], personas.ix['serendipitous']))
-    u_per.ix[i[0]]['casual'] = 1.0 / (1.0 + euclidean(i[1], personas.ix['casual']))
+    u_per.loc[i[0]]['purposeful'] = 1.0 / (1.0 + euclidean(i[1], personas.loc['purposeful']))
+    u_per.loc[i[0]]['sightseeing'] = 1.0 / (1.0 + euclidean(i[1], personas.loc['sightseeing']))
+    u_per.loc[i[0]]['incidental'] = 1.0 / (1.0 + euclidean(i[1], personas.loc['incidental']))
+    u_per.loc[i[0]]['serendipitous'] = 1.0 / (1.0 + euclidean(i[1], personas.loc['serendipitous']))
+    u_per.loc[i[0]]['casual'] = 1.0 / (1.0 + euclidean(i[1], personas.loc['casual']))
 
 u_per = u_per.div(u_per.sum(axis=1), axis=0)
 u_per.to_csv(args.output)
